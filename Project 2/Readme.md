@@ -31,7 +31,3 @@ grpcurl -plaintext -d  '{ "id": "1234" }' localhost:50051 token.v1.TokenService/
 1. cd into Project2
 2. ./client_commands.sh
 
-### References
-1. https://github.com/grpc-ecosystem
-2. https://grpc.io/docs/protoc-installation/
-3. https://github.com/fullstorydev/grpcurl
