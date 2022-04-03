@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package token.v1;
+
+option go_package = "proto";
+
+message Token {
+  int64 id = 1;
+  string name = 2;
+  uint64 low = 3;
+  uint64 mid = 4;
+  uint64 high = 5;
+  uint64 partialValue = 6;
+  uint64 finalValue = 7;
+}
+
+message CreateTokenRequest {
+  int64 id = 1;
+}
+
+message CreateTokenResponse {
+  string status = 1;
+}
+
+message WriteTokenRequest {
+  Token token = 1;
+}
+
+message WriteTokenResponse {
+  string status = 1;
+}
+
+message ReadTokenRequest {
+  int64 id = 1;
+}
+
+message ReadTokenResponse {
+  Token token = 1;
+  string status = 2;
+}
+
+message DropTokenRequest {
+  int64 id = 1;
+}
+
+message DropTokenResponse {
+  string status = 1;
+}
+
+service TokenService {
+  rpc CreateToken(CreateTokenRequest) returns (CreateTokenResponse) {}
+  rpc WriteToken(WriteTokenRequest) returns (WriteTokenResponse) {}
+  rpc ReadToken(ReadTokenRequest) returns (ReadTokenResponse) {}
+  rpc DropToken(DropTokenRequest) returns (DropTokenResponse) {}
+}
